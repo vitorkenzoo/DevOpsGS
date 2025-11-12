@@ -1,3 +1,6 @@
+# azure-pipeline.yml
+# Pipeline de Build (CI) para o projeto EcoLessonAPI (.NET 8)
+
 trigger:
 - main
 
@@ -6,11 +9,11 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
+  dotnetVersion: '8.0.x'
   
+  # Variáveis apontando para os caminhos corretos do seu repositório
   solutionPath: 'EcoLessonAPI.sln' 
-  
   projectPath: 'EcoLessonAPI/EcoLessonAPI.csproj'
-  
   testProjectPath: 'EcoLessonAPI.Tests/EcoLessonAPI.Tests.csproj'
 
 stages:
@@ -21,13 +24,14 @@ stages:
     displayName: 'Build, Test & Publish'
     steps:
     
-
+    # 1. Configurar o ambiente para .NET 8
     - task: UseDotNet@2
       displayName: 'Usar .NET 8.x'
       inputs:
         packageType: 'sdk'
-        version: '8.x'
+        version: $(dotnetVersion)
 
+    # 2. Restaurar dependências (NuGet)
     - task: DotNetCoreCLI@2
       displayName: 'Restaurar Dependências (Solução)'
       inputs:
@@ -35,6 +39,7 @@ stages:
         projects: '$(solutionPath)' 
         feedsToUse: 'select'
 
+    # 3. Compilar o projeto
     - task: DotNetCoreCLI@2
       displayName: 'Compilar Projeto (API)'
       inputs:
@@ -42,35 +47,45 @@ stages:
         projects: '$(projectPath)'
         arguments: '--configuration $(buildConfiguration) --no-restore'
 
-  
+    # 4. Rodar Testes (Cumpre Requisito 05)
     - task: DotNetCoreCLI@2
-      displayName: 'Rodar Testes'
+      displayName: 'Rodar Testes (xUnit)'
       inputs:
         command: 'test'
         projects: '$(testProjectPath)'
         arguments: '--configuration $(buildConfiguration) --no-build --logger trx --results-directory $(Agent.TempDirectory)/TestResults'
 
+    # 5. Publicar Resultados dos Testes (Cumpre Requisito 05)
     - task: PublishTestResults@2
       displayName: 'Publicar Resultados dos Testes'
       inputs:
         testResultsFormat: 'VSTest'
         testResultsFiles: '$(Agent.TempDirectory)/TestResults/**/*.trx'
         mergeTestResults: true
-      condition: succeededOrFailed()
+      condition: succeededOrFailed() 
 
+    # 6. Publicar a Aplicação (Gerar os arquivos para deploy)
     - task: DotNetCoreCLI@2
       displayName: 'Publicar Projeto (API)'
       inputs:
         command: 'publish'
         publishWebProjects: false 
         projects: '$(projectPath)' 
-        arguments: '--configuration $(buildConfiguration) --no-build --output $(Build.ArtifactStagingDirectory)'
-        zipAfterPublish: true
+        arguments: '--configuration $(buildConfiguration) --no-build --output $(Build.ArtifactStagingDirectory)/WebApp'
+        zipAfterPublish: true 
 
-
+    # 7. Publicar Artefato 1: O WebApp (.zip)
     - task: PublishBuildArtifacts@1
-      displayName: 'Publicar Artefato Final (webapi.zip)'
+      displayName: 'Publicar Artefato: WebApp'
       inputs:
-        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        ArtifactName: 'webapi'
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)/WebApp'
+        ArtifactName: 'WebApp'
+        publishLocation: 'Container'
+
+    # 8. Publicar Artefato 2: O Script SQL (CRUCIAL para o Release)
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publicar Artefato: SqlScript'
+      inputs:
+        PathtoPublish: '$(System.DefaultWorkingDirectory)/scripts' # <--- CORREÇÃO FINAL: Caminho para a pasta 'scripts' na raiz
+        ArtifactName: 'SqlScript'
         publishLocation: 'Container'
