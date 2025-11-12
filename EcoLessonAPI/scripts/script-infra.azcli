@@ -1,0 +1,42 @@
+# Script de Infraestrutura como Código (Azure CLI)
+# Objetivo: Criar os recursos PaaS para a entrega de DevOps
+
+# --- Variáveis (Mude se quiser) ---
+RESOURCE_GROUP="rg-ecolesson-gs"
+LOCATION="brazilsouth"
+APP_PLAN="plan-ecolesson-gs"
+
+# IMPORTANTE: Mude este nome para algo ÚNICO no mundo
+WEB_APP_NAME="api-ecolesson-vitor-2025" 
+
+# IMPORTANTE: Mude este nome para algo ÚNICO no mundo
+SQL_SERVER_NAME="sql-ecolesson-vitor-2025" 
+
+SQL_DB_NAME="db-ecolesson"
+ADMIN_USER="adminfiap"
+ADMIN_PASS="SenhaSuperForte123!" # <-- Troque por uma senha forte
+
+# --- Execução ---
+echo "Iniciando criação da infraestrutura..."
+
+# 1. Criar Grupo de Recursos
+az group create --name $RESOURCE_GROUP --location $LOCATION
+
+# 2. Criar Servidor SQL (PaaS)
+az sql server create --name $SQL_SERVER_NAME --resource-group $RESOURCE_GROUP --location $LOCATION --admin-user $ADMIN_USER --admin-password $ADMIN_PASS
+
+# 3. Configurar o Firewall do Servidor SQL (Permitir acesso dos serviços do Azure)
+az sql server firewall-rule create --resource-group $RESOURCE_GROUP --server $SQL_SERVER_NAME --name AllowAzureServices --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+
+# 4. Criar Banco de Dados (PaaS)
+az sql db create --resource-group $RESOURCE_GROUP --server $SQL_SERVER_NAME --name $SQL_DB_NAME --service-objective S0
+
+# 5. Criar Plano do App Service (PaaS)
+az appservice plan create --name $APP_PLAN --resource-group $RESOURCE_GROUP --is-linux --sku F1
+
+# 6. Criar o Web App (PaaS)
+az webapp create --resource-group $RESOURCE_GROUP --plan $APP_PLAN --name $WEB_APP_NAME --runtime "DOTNETCORE|8.0"
+
+echo "--- INFRAESTRUTURA CRIADA COM SUCESSO ---"
+echo "URL do Web App: https://$WEB_APP_NAME.azurewebsites.net"
+echo "Copie a Connection String do Banco de Dados no Portal Azure!"
