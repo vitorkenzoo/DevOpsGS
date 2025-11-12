@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/gabrielteodoro/VsCode/GS/EcoLessonAPI.Tests/EcoLessonAPI.Tests.csproj": {}
+    "C:\\Users\\VITOR\\mascote\\DevOpsGS\\EcoLessonAPI.Tests\\EcoLessonAPI.Tests.csproj": {}
   },
   "projects": {
-    "/Users/gabrielteodoro/VsCode/GS/EcoLessonAPI.Tests/EcoLessonAPI.Tests.csproj": {
+    "C:\\Users\\VITOR\\mascote\\DevOpsGS\\EcoLessonAPI.Tests\\EcoLessonAPI.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/gabrielteodoro/VsCode/GS/EcoLessonAPI.Tests/EcoLessonAPI.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\VITOR\\mascote\\DevOpsGS\\EcoLessonAPI.Tests\\EcoLessonAPI.Tests.csproj",
         "projectName": "EcoLessonAPI.Tests",
-        "projectPath": "/Users/gabrielteodoro/VsCode/GS/EcoLessonAPI.Tests/EcoLessonAPI.Tests.csproj",
-        "packagesPath": "/Users/gabrielteodoro/.nuget/packages/",
-        "outputPath": "/Users/gabrielteodoro/VsCode/GS/EcoLessonAPI.Tests/obj/",
+        "projectPath": "C:\\Users\\VITOR\\mascote\\DevOpsGS\\EcoLessonAPI.Tests\\EcoLessonAPI.Tests.csproj",
+        "packagesPath": "C:\\Users\\VITOR\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\VITOR\\mascote\\DevOpsGS\\EcoLessonAPI.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/gabrielteodoro/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\VITOR\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -26,8 +26,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/gabrielteodoro/VsCode/GS/EcoLessonAPI/EcoLessonAPI.csproj": {
-                "projectPath": "/Users/gabrielteodoro/VsCode/GS/EcoLessonAPI/EcoLessonAPI.csproj"
+              "C:\\Users\\VITOR\\mascote\\DevOpsGS\\EcoLessonAPI\\EcoLessonAPI.csproj": {
+                "projectPath": "C:\\Users\\VITOR\\mascote\\DevOpsGS\\EcoLessonAPI\\EcoLessonAPI.csproj"
               }
             }
           }
@@ -41,7 +41,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -53,7 +54,7 @@
             },
             "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
-              "version": "[9.0.10, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
@@ -88,21 +89,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.414/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/gabrielteodoro/VsCode/GS/EcoLessonAPI/EcoLessonAPI.csproj": {
+    "C:\\Users\\VITOR\\mascote\\DevOpsGS\\EcoLessonAPI\\EcoLessonAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/gabrielteodoro/VsCode/GS/EcoLessonAPI/EcoLessonAPI.csproj",
+        "projectUniqueName": "C:\\Users\\VITOR\\mascote\\DevOpsGS\\EcoLessonAPI\\EcoLessonAPI.csproj",
         "projectName": "EcoLessonAPI",
-        "projectPath": "/Users/gabrielteodoro/VsCode/GS/EcoLessonAPI/EcoLessonAPI.csproj",
-        "packagesPath": "/Users/gabrielteodoro/.nuget/packages/",
-        "outputPath": "/Users/gabrielteodoro/VsCode/GS/EcoLessonAPI/obj/",
+        "projectPath": "C:\\Users\\VITOR\\mascote\\DevOpsGS\\EcoLessonAPI\\EcoLessonAPI.csproj",
+        "packagesPath": "C:\\Users\\VITOR\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\VITOR\\mascote\\DevOpsGS\\EcoLessonAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/gabrielteodoro/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\VITOR\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -125,7 +126,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -139,17 +141,25 @@
               "target": "Package",
               "version": "[8.0.20, )"
             },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[6.1.2, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.10, )"
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.10, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore": {
               "target": "Package",
@@ -175,10 +185,6 @@
               "target": "Package",
               "version": "[1.0.0-beta.7, )"
             },
-            "Oracle.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[9.23.26000, )"
-            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.6.2, )"
@@ -203,7 +209,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.414/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

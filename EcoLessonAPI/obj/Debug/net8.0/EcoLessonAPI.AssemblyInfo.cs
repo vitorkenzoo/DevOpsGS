@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EcoLessonAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+248ef1326344616cb9920d1e4f606ab3725f1f41")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+16e17ac53e114fb8eb83e49ecf56d5e3839631b6")]
 [assembly: System.Reflection.AssemblyProductAttribute("EcoLessonAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EcoLessonAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

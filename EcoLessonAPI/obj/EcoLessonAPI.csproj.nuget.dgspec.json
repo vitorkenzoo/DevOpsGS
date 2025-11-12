@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\VITOR\\bingo\\DevOpsGS\\ecolessonapi\\EcoLessonAPI.csproj": {}
+    "C:\\Users\\VITOR\\mascote\\DevOpsGS\\EcoLessonAPI\\EcoLessonAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\VITOR\\bingo\\DevOpsGS\\ecolessonapi\\EcoLessonAPI.csproj": {
+    "C:\\Users\\VITOR\\mascote\\DevOpsGS\\EcoLessonAPI\\EcoLessonAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\VITOR\\bingo\\DevOpsGS\\ecolessonapi\\EcoLessonAPI.csproj",
+        "projectUniqueName": "C:\\Users\\VITOR\\mascote\\DevOpsGS\\EcoLessonAPI\\EcoLessonAPI.csproj",
         "projectName": "EcoLessonAPI",
-        "projectPath": "C:\\Users\\VITOR\\bingo\\DevOpsGS\\ecolessonapi\\EcoLessonAPI.csproj",
+        "projectPath": "C:\\Users\\VITOR\\mascote\\DevOpsGS\\EcoLessonAPI\\EcoLessonAPI.csproj",
         "packagesPath": "C:\\Users\\VITOR\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\VITOR\\bingo\\DevOpsGS\\ecolessonapi\\obj\\",
+        "outputPath": "C:\\Users\\VITOR\\mascote\\DevOpsGS\\EcoLessonAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\VITOR\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -60,7 +60,7 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.10, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
@@ -70,7 +70,7 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.10, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore": {
               "target": "Package",
