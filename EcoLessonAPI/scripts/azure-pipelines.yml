@@ -1,0 +1,76 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  buildConfiguration: 'Release'
+  
+  solutionPath: 'EcoLessonAPI.sln' 
+  
+  projectPath: 'EcoLessonAPI/EcoLessonAPI.csproj'
+  
+  testProjectPath: 'EcoLessonAPI.Tests/EcoLessonAPI.Tests.csproj'
+
+stages:
+- stage: Build
+  displayName: 'Build e Teste da API .NET'
+  jobs:
+  - job: Build
+    displayName: 'Build, Test & Publish'
+    steps:
+    
+
+    - task: UseDotNet@2
+      displayName: 'Usar .NET 8.x'
+      inputs:
+        packageType: 'sdk'
+        version: '8.x'
+
+    - task: DotNetCoreCLI@2
+      displayName: 'Restaurar Dependências (Solução)'
+      inputs:
+        command: 'restore'
+        projects: '$(solutionPath)' 
+        feedsToUse: 'select'
+
+    - task: DotNetCoreCLI@2
+      displayName: 'Compilar Projeto (API)'
+      inputs:
+        command: 'build'
+        projects: '$(projectPath)'
+        arguments: '--configuration $(buildConfiguration) --no-restore'
+
+  
+    - task: DotNetCoreCLI@2
+      displayName: 'Rodar Testes'
+      inputs:
+        command: 'test'
+        projects: '$(testProjectPath)'
+        arguments: '--configuration $(buildConfiguration) --no-build --logger trx --results-directory $(Agent.TempDirectory)/TestResults'
+
+    - task: PublishTestResults@2
+      displayName: 'Publicar Resultados dos Testes'
+      inputs:
+        testResultsFormat: 'VSTest'
+        testResultsFiles: '$(Agent.TempDirectory)/TestResults/**/*.trx'
+        mergeTestResults: true
+      condition: succeededOrFailed()
+
+    - task: DotNetCoreCLI@2
+      displayName: 'Publicar Projeto (API)'
+      inputs:
+        command: 'publish'
+        publishWebProjects: false 
+        projects: '$(projectPath)' 
+        arguments: '--configuration $(buildConfiguration) --no-build --output $(Build.ArtifactStagingDirectory)'
+        zipAfterPublish: true
+
+
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publicar Artefato Final (webapi.zip)'
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'webapi'
+        publishLocation: 'Container'

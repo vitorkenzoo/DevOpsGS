@@ -2,15 +2,13 @@ namespace EcoLessonAPI.Models;
 
 public class Certificado
 {
-    public string IdCertificado { get; set; } = string.Empty;
+    public long IdCertificado { get; set; } // <-- MUDADO DE 'string'
+    
     public DateTime DtEmissao { get; set; }
-    public string Descricao { get; set; } = string.Empty;
-    public string CodigoValidacao { get; set; } = string.Empty;
-    public decimal IdUsuario { get; set; }
-    public decimal IdCurso { get; set; }
-    
-    // Navigation properties
-    public virtual Usuario? Usuario { get; set; }
-    public virtual Curso? Curso { get; set; }
+    public string Descricao { get; set; } = string.Empty;
+    public string CodigoValidacao { get; set; } = string.Empty;
+    public long IdUsuario { get; set; } // <-- MUDADO DE 'decimal'
+    public long IdCurso { get; set; } 
+    public virtual Usuario? Usuario { get; set; }
+    public virtual Curso? Curso { get; set; }
 }
-

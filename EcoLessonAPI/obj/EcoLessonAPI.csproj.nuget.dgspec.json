@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\VITOR\\Downloads\\DevOps.net\\DevOps\\EcoLessonApi\\EcoLessonAPI.csproj": {}
+    "C:\\Users\\VITOR\\bingo\\DevOpsGS\\ecolessonapi\\EcoLessonAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\VITOR\\Downloads\\DevOps.net\\DevOps\\EcoLessonApi\\EcoLessonAPI.csproj": {
+    "C:\\Users\\VITOR\\bingo\\DevOpsGS\\ecolessonapi\\EcoLessonAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\VITOR\\Downloads\\DevOps.net\\DevOps\\EcoLessonApi\\EcoLessonAPI.csproj",
+        "projectUniqueName": "C:\\Users\\VITOR\\bingo\\DevOpsGS\\ecolessonapi\\EcoLessonAPI.csproj",
         "projectName": "EcoLessonAPI",
-        "projectPath": "C:\\Users\\VITOR\\Downloads\\DevOps.net\\DevOps\\EcoLessonApi\\EcoLessonAPI.csproj",
+        "projectPath": "C:\\Users\\VITOR\\bingo\\DevOpsGS\\ecolessonapi\\EcoLessonAPI.csproj",
         "packagesPath": "C:\\Users\\VITOR\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\VITOR\\Downloads\\DevOps.net\\DevOps\\EcoLessonApi\\obj\\",
+        "outputPath": "C:\\Users\\VITOR\\bingo\\DevOpsGS\\ecolessonapi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\VITOR\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -52,11 +52,19 @@
               "target": "Package",
               "version": "[8.0.20, )"
             },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[6.1.2, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
               "version": "[9.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -87,10 +95,6 @@
             "OpenTelemetry.Instrumentation.EntityFrameworkCore": {
               "target": "Package",
               "version": "[1.0.0-beta.7, )"
-            },
-            "Oracle.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[9.23.26000, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
